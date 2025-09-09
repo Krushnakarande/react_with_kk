@@ -1,16 +1,20 @@
-import { useEffect ,useState} from "react";
+import { useEffect, useState } from "react";
 
-function useCurrencyinfo(currency) {
+function useCurrencyInfo(currency) {
+  const [data, setData] = useState({});
 
-    const [data,setdata] =useState({})
-    useEffect(() => {
-        fetch(`https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/${currency}.json`)
+  useEffect(() => {
+    fetch(
+      `https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/${currency}.json`
+    )
       .then((res) => res.json())
-        .then((res) => setdata(res[currency]))
-        console.log(data);
-    }, [currency])
-    console.log(data);
-    return data
+      .then((res) => {
+        setData(res[currency]); // ✅ correct
+      })
+      .catch((err) => console.error("API Error:", err));
+  }, [currency]);
+
+  return data; // e.g. { inr: 83.24, eur: 0.91 }
 }
 
-    export default useCurrencyinfo;
+export default useCurrencyInfo;

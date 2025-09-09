@@ -5,6 +5,9 @@
   padding: 2rem;
   text-align: center;
 }
+#button {
+  all: unset;
+}
 
 .logo {
   height: 6em;
