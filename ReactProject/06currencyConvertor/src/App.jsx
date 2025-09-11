@@ -35,6 +35,17 @@ function App() {
     backgroundImage: `url('https://images.pexels.com/photos/33813215/pexels-photo-33813215.jpeg')`,
   }}
 >
+
+   {/* New Div */}
+<div className="rounded-lg text-black p-5 backdrop-blur-sm bg-white/30 w-[400px] h-[300px] flex flex-col justify-center items-center">
+  <div className=" w-[200px] h-[50px] bg-black rounded-lg"><h2 className ="my-2 text-xl font-bold mb-4 text-white"> Conversion Details </h2></div>
+  <br />
+  <p className ="text-xl"> Amount :{amount}</p><br />
+  <p className ="text-xl"> From:{from.toUpperCase()}  To:{to.toUpperCase()}</p><br />
+  <p className={`text-lg font-semibold ${ Number(amount) > Number(convertedAmount)? "text-red-600 " : "text-green-600"}`}> convertedAmount :{convertedAmount} </p>
+ 
+</div>
+
   {/* Old Div (converter box) */}
   <div className="w-full max-w-md border border-gray-60 rounded-lg p-5 backdrop-blur-sm bg-white/30">
     <form
